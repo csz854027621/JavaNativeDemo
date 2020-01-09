@@ -1,0 +1,15 @@
+javah -d .\jni -classpath .\ DemoC        生成.h文件       -d  .h文件放在什么目录下     -classpath 生成的目录下        DemoC  .class文件
+javac DemoC.java    编译java
+javah -jni HelloWorld   生成 .h
+
+gcc  -m64 -Wl,--add-stdcall-alias 
+-I "D:\Program Files (x86)\Java\jdk1.8.0_121\include"  
+-I "D:\Program Files (x86)\Java\jdk1.8.0_121\include\win32" -shared -o DemoC.dll DemoC.c
+
+生成 dll文件64位
+
+
+gcc  -Wl,--add-stdcall-alias 
+-I "D:\Program Files (x86)\Java\jdk1.8.0_121\include"  
+-I "D:\Program Files (x86)\Java\jdk1.8.0_121\include\win32" -shared -o DemoC.dll DemoC.c      32位
+
